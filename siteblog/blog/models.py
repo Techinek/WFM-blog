@@ -46,6 +46,9 @@ class Post(models.Model):
     category = models.ForeignKey(to=Category, on_delete=models.PROTECT, related_name='posts')
     tags = models.ManyToManyField(to=Tag, blank=True, related_name='posts')
 
+    def get_absolute_url(self, slug):
+        return reverse('post', kwargs={'slug': slug})
+
     def __str__(self):
         return self.title
 
