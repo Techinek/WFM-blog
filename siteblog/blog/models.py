@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Category(models.Model):
+    """Category model for posts"""
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     slug = models.SlugField(max_length=255, verbose_name='Урл', unique=True)
 
@@ -15,6 +16,7 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
+    """Tag model for posts"""
     title = models.CharField(max_length=150, verbose_name='Заголовок')
     slug = models.SlugField(max_length=150, verbose_name='Урл', unique=True)
 
@@ -28,6 +30,7 @@ class Tag(models.Model):
 
 
 class Post(models.Model):
+    """Post model with 2 different relations (Category and Tag)"""
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     slug = models.SlugField(max_length=255, verbose_name='Урл', unique=True)
     author = models.CharField(max_length=100, verbose_name='Заголовок')
